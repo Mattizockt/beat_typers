@@ -7,12 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def main():
     # how quick should input be
-    while True:
-        typespeed = float(input("enter distance between entering keys: to beat everyone 0.04 is fully sufficient" + "\n"))
-        if typespeed < 0.03:
-            print("too small")
-        else:
-            break
+    typespeed = float(input("enter distance between entering keys: to beat everyone 0.04 is fully sufficient" + "\n"))
 
     # initializing driver
     chrome_options = Options()
