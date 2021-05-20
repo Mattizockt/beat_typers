@@ -6,6 +6,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def main():
+    # how quick should input be
+    while True:
+        typespeed = float(input("enter distance between entering keys: to beat everyone 0.04 is fully sufficient" + "\n"))
+        if typespeed < 0.03:
+            print("too small")
+        else:
+            break
 
     # initializing driver
     chrome_options = Options()
@@ -36,25 +43,10 @@ def main():
     input_field = driver.find_element_by_xpath("//input[@class = 'txtInput']")
     for character in text:
         input_field.send_keys(character)
-        sleep(0.1)
+        sleep(typespeed)
 
     sleep(10000)
     driver.close()
 
 if __name__ == "__main__":
     main()
-
-    # //span
-    #
-    # setTimeout(function(){ debugger; }, 1000);
-    # you have to freeze the page with this code
-    # than find out the xpath of timer by contains(text)
-
-
-
-    # wait till race can start
-    # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='popupContent']//span["
-    #                                                                           "@class='time']")))
-    # countdown = None
-    # while countdown != ":00":
-    #     countdown = driver.find_element_by_xpath("//div[@class='popupContent']//span[@class='time']").text
